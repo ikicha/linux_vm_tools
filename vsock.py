@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import socket
 
 # Constants for vsock (from linux/vm_sockets.h)
