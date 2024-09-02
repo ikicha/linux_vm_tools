@@ -1,5 +1,4 @@
 #!/bin/bash
-export LIBGUESTFS_DEBUG=1 LIBGUESTFS_TRACE=1
 
 pushd $(dirname $0) > /dev/null
 tempdir=$(mktemp -d)
