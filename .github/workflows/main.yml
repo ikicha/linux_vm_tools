@@ -9,7 +9,7 @@ jobs:
     - name: Check out repository code
       uses: actions/checkout@v4
     - name: install deps
-      run: apt-get update && apt-get upgrade -y && apt-get install -y libguestfs-tools wget
+      run: sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install -y libguestfs-tools wget
     - name: build the image
       run: ./setup.sh
     - name: Publish the artifiacts
