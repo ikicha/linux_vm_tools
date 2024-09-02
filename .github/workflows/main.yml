@@ -1,0 +1,17 @@
+name: HostImage
+
+on: [push]
+
+jobs:
+  build-custom-image-job:
+    runs-on: debian-latest
+    steps:
+    - name: install deps
+      run: apt-get update && apt-get upgrade -y && apt-get install -y libguestfs-tools wget
+    - name: build the image
+      run: ./setup.sh
+    - name: Publish the artifiacts
+      uses: actions/upload-artifact@c7d193f32edcb7bfad88892161225aeda64e9392 # aka v4.0.0
+      with:
+        name: image
+        path: ../assets/linux/images.tar.gz
