@@ -8,8 +8,7 @@ SOCK_STREAM = 1
 VMADDR_CID_ANY = -1
 
 def get_local_ip():
-    """
-    Retrieves the first IPv4 address found on the system.
+    """Retrieves the first IPv4 address found on the system.
 
     Returns:
         str: The local IPv4 address, or '127.0.0.1' if no IPv4 address is found.
