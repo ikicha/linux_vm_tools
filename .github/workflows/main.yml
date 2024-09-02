@@ -1,4 +1,4 @@
-name: HostImage
+name: Debian image - aarch64
 
 on: [push]
 
@@ -6,6 +6,8 @@ jobs:
   build-custom-image-job:
     runs-on: debian-latest
     steps:
+    - name: Check out repository code
+      uses: actions/checkout@v4
     - name: install deps
       run: apt-get update && apt-get upgrade -y && apt-get install -y libguestfs-tools wget
     - name: build the image
