@@ -7,7 +7,7 @@ wget -q https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-nocloud-
 wget -q https://github.com/tsl0922/ttyd/releases/download/1.7.7/ttyd.aarch64 -O ${tempdir}/ttyd
 
 echo Customize the image...
-virt-customize --commands-from-file <(sed "s|/tmp|$tempdir|g" commands) -a ${tempdir}/debian.img
+sudo virt-customize --commands-from-file <(sed "s|/tmp|$tempdir|g" commands) -a ${tempdir}/debian.img
 
 output_dir=out/linux
 mkdir -p ${output_dir}
