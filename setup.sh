@@ -1,4 +1,5 @@
 #!/bin/bash
+export LIBGUESTFS_DEBUG=1 LIBGUESTFS_TRACE=1
 
 pushd $(dirname $0) > /dev/null
 tempdir=$(mktemp -d)
@@ -7,7 +8,7 @@ wget -q https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-nocloud-
 wget -q https://github.com/tsl0922/ttyd/releases/download/1.7.7/ttyd.aarch64 -O ${tempdir}/ttyd
 
 echo Customize the image...
-sudo virt-customize --commands-from-file <(sed "s|/tmp|$tempdir|g" commands) -a ${tempdir}/debian.img
+virt-customize --commands-from-file <(sed "s|/tmp|$tempdir|g" commands) -a ${tempdir}/debian.img
 
 output_dir=out/linux
 mkdir -p ${output_dir}
