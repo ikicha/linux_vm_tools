@@ -1,0 +1,19 @@
+name: Debian image - x86_64
+
+on: [push]
+
+jobs:
+  build-custom-image-job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out repository code
+      uses: actions/checkout@v4
+    - name: install deps
+      run: sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install -y libguestfs-tools wget
+    - name: build the image
+      run: sudo ./setup_x86_64.sh
+    - name: Publish the artifiacts
+      uses: actions/upload-artifact@c7d193f32edcb7bfad88892161225aeda64e9392 # aka v4.0.0
+      with:
+        name: image
+        path: out/linux/*
