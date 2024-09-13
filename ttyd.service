@@ -3,7 +3,7 @@ Description=TTYD
 After=syslog.target
 After=network.target
 [Service]
-ExecStart=/usr/local/bin/ttyd -W login
+ExecStart=/usr/local/bin/ttyd -W screen -DR main login
 Type=simple
 Restart=always
 User=root
